@@ -1,0 +1,17 @@
+services:
+  postgresql:
+    image: bitnami/postgresql:latest
+    container_name: bitnami_postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_USERNAME=admin
+      - POSTGRESQL_PASSWORD=admin
+      - POSTGRESQL_DATABASE=next-dashboard
+    volumes:
+      - postgresql_data:/bitnami/postgresql
+    restart: always
+
+volumes:
+  postgresql_data:
+    driver: local
